@@ -9,7 +9,7 @@ import codecs
 #sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 def get_secrets():
-    with open('../secrets.json') as secrets_file:
+    with open('./secrets.json') as secrets_file:
         secrets = json.load(secrets_file)
 
     return secrets
@@ -48,7 +48,7 @@ def findARestaurant(mealType, location):
 
             # 4. Get a 300x300 picture of the restaurant using the venue_id
             url = ('https://api.foursquare.com/v3/places/%s/photos' % ((fsq_id)))
-            headers = {"accept": "application/json", "Authorization": "fsq3JXM0g5VsJpnflAsebDYaAiSsQB9uvEEmMt207ptLdK0="}
+            headers = {"accept": "application/json", "Authorization": foursquare_api_key}
             result = json.loads(h.request(url, 'GET', headers=headers)[1])
 
             # 5. Grab the first image
