@@ -38,13 +38,13 @@ def findARestaurant(mealType, location):
         h = httplib2.Http()
 
         result = json.loads(h.request(url, 'GET', headers=headers)[1])
-
+        #print(result)
         if result['results'][0]['categories'][0]:
             # 3. Grab the first restaurant
-            restaurant = result['results'][0]['categories'][0]
-            fsq_id =  result['results'][0]["fsq_id"]
+            restaurant = result['results'][0]
+            fsq_id =  restaurant["fsq_id"]
             restaurant_name = restaurant['name']
-            restaurant_address = result['results'][0]['location']["formatted_address"]
+            restaurant_address = restaurant['location']["formatted_address"]
 
             # 4. Get a 300x300 picture of the restaurant using the venue_id
             url = ('https://api.foursquare.com/v3/places/%s/photos' % ((fsq_id)))
