@@ -85,4 +85,4 @@ if __name__ == '__main__':
     findARestaurant("Sushi", "Los Angeles, California")
     findARestaurant("Steak", "La Paz, Bolivia")
     findARestaurant("Gyros", "Sydney, Australia")
-    findARestaurant("Jollof", "Toronto, Canada")
+    findARestaurant("burger", "Sparwood, Canada")
